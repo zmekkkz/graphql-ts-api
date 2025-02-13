@@ -12,15 +12,18 @@ graphql-ts
 │   ├── config
 │   │   └── ormconfigs.ts        # Database configuration
 │   ├── models
-│   │   └── Operator.ts          # Operator entity
+│   │   └── Operator.ts          # Operator entity model
+│   ├── resolver
+│   │   └── Operator.ts          # GraphQL resolvers
 │   └── index.ts                 # Entry point of the application
-├── .env                          # Environment variables for database configuration
-├── .eslintrc.json               # ESLint configuration
-├── .prettierrc                  # Prettier configuration
-├── nodemon.json                 # Nodemon configuration
-├── package.json                  # NPM configuration
-├── tsconfig.json                # TypeScript configuration
-└── README.md                    # Project documentation
+├── .env                         # Environment variables
+├── .eslintrc.json              # ESLint configuration
+├── .prettierrc                 # Prettier configuration
+├── .gitignore                  # Git ignore file
+├── nodemon.json                # Nodemon configuration
+├── package.json                # NPM configuration
+├── tsconfig.json               # TypeScript configuration
+└── README.md                   # Project documentation
 ```
 
 ## Installation
