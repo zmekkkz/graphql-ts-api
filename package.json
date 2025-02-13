@@ -1,0 +1,36 @@
+{
+  "name": "graphql-ts",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon src/index.ts"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.2.3",
+    "@types/node": "^20.x",
+    "eslint": "^8.x",
+    "eslint-config-prettier": "^8.x",
+    "eslint-plugin-prettier": "^4.x",
+    "nodemon": "^2.x",
+    "prettier": "^2.x",
+    "rimraf": "^5.x",
+    "ts-node": "^10.x",
+    "typescript": "^5.x"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "class-validator": "^0.14.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.x",
+    "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "pg": "^8.x",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^2.0.0-rc.2",
+    "typeorm": "^0.3.x"
+  }
+}
