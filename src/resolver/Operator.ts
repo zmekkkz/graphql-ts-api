@@ -13,23 +13,21 @@ export class OperatorResolver {
 
   @Query(() => [Operator])
   async operatorsByHealthZone(
-    @Arg('health_zone') health_zone: string
+    @Arg('health_zone') health_zone: string,
   ): Promise<Operator[]> {
     return await this.operatorRepository.find({
       where: {
-        health_zone: health_zone
-      }
+        health_zone: health_zone,
+      },
     });
   }
 
   @Query(() => Operator)
-  async operatorById(
-    @Arg('id') id: string
-  ): Promise<Operator | undefined> {
+  async operatorById(@Arg('id') id: string): Promise<Operator | undefined> {
     const operator = await this.operatorRepository.findOne({
-        where: {
-            id: id
-        }
+      where: {
+        id: id,
+      },
     });
     return operator || undefined;
   }

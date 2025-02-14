@@ -28,7 +28,6 @@ const main = async () => {
     });
 
     console.log(`🚀 Server ready at: ${url}`);
-
   } catch (error) {
     console.error('Unable to start server:', error);
   }
