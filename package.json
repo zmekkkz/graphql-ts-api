@@ -5,11 +5,18 @@
     "clean": "rimraf dist",
     "build": "tsc",
     "start": "ts-node src/index.ts",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "pre-commit": "npm run lint && npm run format:check"
   },
   "devDependencies": {
     "@types/graphql": "^14.2.3",
     "@types/node": "^20.x",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
     "eslint": "^8.x",
     "eslint-config-prettier": "^8.x",
     "eslint-plugin-prettier": "^4.x",

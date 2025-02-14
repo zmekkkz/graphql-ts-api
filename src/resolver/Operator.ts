@@ -13,7 +13,7 @@ export class OperatorResolver {
 
   @Query(() => [Operator])
   async operatorsByHealthZone(
-    @Arg('health_zone') health_zone: string,
+    @Arg('health_zone') health_zone: string
   ): Promise<Operator[]> {
     return await this.operatorRepository.find({
       where: {
