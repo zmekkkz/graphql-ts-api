@@ -5,6 +5,10 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { buildSchema } from 'type-graphql';
 import { OperatorResolver } from './resolver/Operator';
 
+interface MyContext {
+  token?: string;
+}
+
 const main = async () => {
   try {
     await AppDataSource.initialize();
@@ -15,11 +19,11 @@ const main = async () => {
       validate: false,
     });
 
-    const server = new ApolloServer({
+    const server = new ApolloServer<MyContext>({
       schema,
     });
 
-    const { url } = await startStandaloneServer(server, {
+    const { url }: { url: string } = await startStandaloneServer(server, {
       listen: { port: 4000 },
     });
 
@@ -31,5 +35,3 @@ const main = async () => {
 };
 
 main();
-
-
