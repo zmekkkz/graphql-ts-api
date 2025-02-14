@@ -94,8 +94,8 @@ The API is available at `http://localhost:4000` with these endpoints:
    query {
      operators {
        id
-       operatorName
-       healthZone
+       operator_name
+       health_zone
      }
    }
    ```
@@ -105,7 +105,7 @@ The API is available at `http://localhost:4000` with these endpoints:
    query {
      operatorById(id: "your-id") {
        id
-       operatorName
+       operator_name
      }
    }
    ```
@@ -113,10 +113,10 @@ The API is available at `http://localhost:4000` with these endpoints:
 3. Get operators by health zone:
    ```graphql
    query {
-     operatorsByHealthZone(health_zone: "ZONE1") {
+     operatorsByHealthZone(health_zone: "0") {
        id
-       operatorName
-       healthZone
+       operator_name
+       health_zone
      }
    }
    ```
