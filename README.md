@@ -2,7 +2,7 @@
 
 # GraphQL TypeScript Project
 
-This project is a TypeScript application that connects to a PostgreSQL database using TypeORM. It includes an operator entity and provides a basic setup for database connection and querying.
+This project is a TypeScript application that implements a GraphQL API using Apollo Server and TypeORM for PostgreSQL database connectivity. It provides endpoints for querying operator data with TypeScript type safety.
 
 ## Project Structure
 
@@ -26,6 +26,12 @@ graphql-ts
 └── README.md                   # Project documentation
 ```
 
+## Prerequisites
+
+- Node.js (v14 or higher)
+- PostgreSQL (v12 or higher)
+- npm or yarn
+
 ## Installation
 
 1. Clone the repository:
@@ -41,25 +47,103 @@ graphql-ts
 
 ## Configuration
 
-Create a `.env` file in the root directory and set the following environment variables:
+1. Create a `.env` file in the root directory:
+   ```properties
+   DB_HOST=localhost
+   DB_PORT=5433
+   DB_USERNAME=airflow
+   DB_PASSWORD=airflow
+   DB_NAME=mek
+   ```
 
-```
-DB_HOST=localhost
-DB_PORT=5433
-DB_USERNAME=airflow
-DB_PASSWORD=airflow
-DB_NAME=mek
-```
+2. Update database settings in `src/config/ormconfigs.ts` if needed.
 
-## Scripts
+## Available Scripts
 
-- `npm run start`: Starts the application.
-- `npm run dev`: Starts the application with Nodemon for automatic restarts during development.
-- `npm run build`: Compiles the TypeScript code.
+- **Development**
+  ```bash
+  npm run dev          # Start development server with hot reload
+  ```
 
-## Usage
+- **Production**
+  ```bash
+  npm run build       # Build the project
+  npm start          # Start production server
+  ```
 
-Run the application to establish a connection to the database and execute a test query.
+- **Code Quality**
+  ```bash
+  npm run lint       # Check for linting errors
+  npm run lint:fix   # Fix linting errors automatically
+  npm run format     # Format code using Prettier
+  ```
+
+- **Maintenance**
+  ```bash
+  npm run clean      # Remove build artifacts
+  ```
+
+## GraphQL API
+
+The API is available at `http://localhost:4000` with these endpoints:
+
+### Queries
+
+1. Get all operators:
+   ```graphql
+   query {
+     operators {
+       id
+       operatorName
+       healthZone
+     }
+   }
+   ```
+
+2. Get operator by ID:
+   ```graphql
+   query {
+     operatorById(id: "your-id") {
+       id
+       operatorName
+     }
+   }
+   ```
+
+3. Get operators by health zone:
+   ```graphql
+   query {
+     operatorsByHealthZone(health_zone: "ZONE1") {
+       id
+       operatorName
+       healthZone
+     }
+   }
+   ```
+
+## Development
+
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+2. Open GraphQL Playground:
+   - Visit `http://localhost:4000` in your browser
+   - Use the playground to test queries
+
+## Code Quality
+
+- ESLint is configured for TypeScript
+- Prettier ensures consistent code formatting
+- Pre-commit hooks check code quality before commits
+
+## Error Handling
+
+The API includes:
+- Type-safe error responses
+- Proper error formatting
+- Database connection error handling
 
 ## License
 
