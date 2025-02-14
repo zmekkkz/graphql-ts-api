@@ -5,9 +5,16 @@ services:
     build: .
     ports:
       - '4000:4000'
+    networks:
+      - airflow_network
     environment:
-      DB_HOST: host.docker.internal
-      DB_PORT: 5433
+      DB_HOST: airflow-postgres
+      DB_PORT: 5432
       DB_USERNAME: airflow
       DB_PASSWORD: airflow
       DB_NAME: mek
+
+networks:
+  airflow_network:
+    name: airflow_network
+    external: true
